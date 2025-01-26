@@ -37,7 +37,7 @@ export default function Home() {
     setError(null); // Reset any previous error
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/chat-gemini', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export default function Home() {
       // If successful, update messages with assistant's answer
       setMessages([
         ...newMessages,
-        { role: 'assistant', content: data.answer }
+        { role: 'assistant', content: data }
       ]);
     } catch (error: any) {
       console.error('Error:', error);
@@ -70,12 +70,12 @@ export default function Home() {
   };
 
   return (
-    <Container size="sm" style={{ marginTop: '50px' }}>
+    <Container size="sm" style={{ marginTop: '50px', marginBottom: '50px' }}>
       <Card shadow="md" padding="lg" radius="md" withBorder>
         <Stack gap="lg">
           {/* Title */}
           <Title order={1} ta="center">
-            Chat with SimpleAI
+            Chat with Walter
           </Title>
 
           {/* Notification for errors */}
