@@ -1,13 +1,11 @@
  'use client'
 import {
   IconBook,
-  IconChartPie3,
+  IconPencil,
   IconChevronDown,
-  IconCode,
-  IconCoin,
-  IconFingerprint,
+  IconGavel,
+  IconMail,
   IconMoon,
-  IconNotification,
 } from '@tabler/icons-react';
 import {
   Anchor,
@@ -33,37 +31,27 @@ import { useDisclosure } from '@mantine/hooks';
 import classes from './Navbar.module.css';
 import Logo from '../Logo/Logo';
 
-const mockdata = [
+const featuresPopOut = [
   {
-    icon: IconCode,
-    title: 'Open source',
-    description: 'This Pokémon’s cry is very loud and distracting',
+    icon: IconGavel,
+    title: 'Legal Documents',
+    description: 'Let our AI analyze your legal documents',
   },
   {
-    icon: IconCoin,
-    title: 'Free for everyone',
-    description: 'The fluid of Smeargle’s tail secretions changes',
+    icon: IconPencil,
+    title: 'Creative Writing',
+    description: 'Push through writers block with the help of our AI',
+  },
+  {
+    icon: IconMail,
+    title: 'Emails',
+    description: 'Our AI can help you craft that important business email in seconds',
   },
   {
     icon: IconBook,
-    title: 'Documentation',
-    description: 'Yanma is capable of seeing 360 degrees without',
-  },
-  {
-    icon: IconFingerprint,
-    title: 'Security',
-    description: 'The shell’s rounded shape and the grooves on its.',
-  },
-  {
-    icon: IconChartPie3,
-    title: 'Analytics',
-    description: 'This Pokémon uses its flying ability to quickly chase',
-  },
-  {
-    icon: IconNotification,
-    title: 'Notifications',
-    description: 'Combusken battles with the intensely hot flames it spews',
-  },
+    title: 'School',
+    description: 'AI can help enhance your writing without rewriting, give yourself an edge',
+  }
 ];
 
 const Navbar = () => {
@@ -72,13 +60,13 @@ const Navbar = () => {
   const theme = useMantineTheme();
 
   const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme('light');
+  const computedColorScheme = useComputedColorScheme('dark');
 
   const toggleColorScheme = () => {
     setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark');
   };
 
-  const links = mockdata.map((item) => (
+  const links = featuresPopOut.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
@@ -100,10 +88,9 @@ const Navbar = () => {
     <Box>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <Logo />
           <Group h="100%" gap={0} justify="start" visibleFrom="sm">
             <a href="#" className={classes.link}>
-              Home
+              <Logo />
             </a>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
@@ -120,9 +107,6 @@ const Navbar = () => {
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <Group justify="space-between" px="md">
                   <Text fw={500}>Features</Text>
-                  <Anchor href="#" fz="xs">
-                    View all
-                  </Anchor>
                 </Group>
 
                 <Divider my="sm" />
@@ -138,7 +122,7 @@ const Navbar = () => {
                         Get started
                       </Text>
                       <Text size="xs" c="dimmed">
-                        Their food sources have decreased, and their numbers
+                        Sign up for an account today
                       </Text>
                     </div>
                     <Button variant="default">Get started</Button>
@@ -147,10 +131,16 @@ const Navbar = () => {
               </HoverCard.Dropdown>
             </HoverCard>
             <a href="#" className={classes.link}>
-              Learn
+              Try It
             </a>
             <a href="#" className={classes.link}>
-              Academy
+              Pricing
+            </a>
+            <a href="#" className={classes.link}>
+              FAQ
+            </a>
+            <a href="#" className={classes.link}>
+              Contact Us
             </a>
           </Group>
 
@@ -191,10 +181,16 @@ const Navbar = () => {
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
           <a href="#" className={classes.link}>
-            Learn
+            Try It
           </a>
           <a href="#" className={classes.link}>
-            Academy
+            Pricing
+          </a>
+          <a href="#" className={classes.link}>
+            FAQ
+          </a>
+          <a href="#" className={classes.link}>
+            Contact Us
           </a>
 
           <Divider my="sm" />

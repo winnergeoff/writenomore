@@ -1,8 +1,17 @@
+'use client';
+
+import { useState } from 'react';
 import { Button, Container, Text, Title } from '@mantine/core';
 import classes from './Hero.module.css';
 import { Dots } from './Dots';
+import ChatBox from '../ChatBox/ChatBox';
 
 const Hero = () => {
+  const [showChatBox, setShowChatBox] = useState(true);
+  const toggleChatBox = () => {
+    setShowChatBox(!showChatBox);
+  };
+
   return (
     <div className={classes.wrapper}>
       <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
@@ -12,7 +21,7 @@ const Hero = () => {
       <div className={classes.inner}>
         <Title className={classes.title}>
           <Text component="span" className={classes.highlight} inherit>
-            WriteNoMore
+            Write No More
           </Text>{' '}
         </Title>
 
@@ -23,13 +32,22 @@ const Hero = () => {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} size="lg" variant="default" color="gray">
+          <Button
+            onClick={toggleChatBox}
+            className={classes.control}
+            size="lg"
+            variant="default"
+            color="gray"
+          >
             Try It Out
           </Button>
           <Button className={classes.control} size="lg">
             See Pricing
           </Button>
         </div>
+        {showChatBox && (
+          <ChatBox />
+        )}
       </div>
     </div>
   );
