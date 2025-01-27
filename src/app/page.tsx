@@ -5,7 +5,6 @@ import {
   Button,
   Container,
   Textarea,
-  Paper,
   Text,
   Group,
   Stack,
@@ -13,8 +12,8 @@ import {
   Card,
   Title,
   Space,
-  Center,
 } from '@mantine/core';
+import Hero from '../components/Hero/Hero';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -70,66 +69,69 @@ export default function Home() {
   };
 
   return (
-    <Container size="sm" style={{ marginTop: '50px', marginBottom: '50px' }}>
-      <Card shadow="md" padding="lg" radius="md" withBorder>
-        <Stack gap="lg">
-          {/* Title */}
-          <Title order={1} ta="center">
-            Chat with Walter
-          </Title>
+    <div style={{ marginBottom: '50px' }}>
+      <Hero />
+      <Container size="sm">
+        <Card shadow="md" padding="lg" radius="md" withBorder>
+          <Stack gap="lg">
+            {/* Title */}
+            <Title order={1} ta="center">
+              Chat with Walter
+            </Title>
 
-          {/* Notification for errors */}
-          {error && (
-            <Notification
-              color="red"
-              title="Error"
-              onClose={() => setError(null)} // Hide error notification on close
-              style={{ marginBottom: '20px' }}
-            >
-              {error}
-            </Notification>
-          )}
+            {/* Notification for errors */}
+            {error && (
+              <Notification
+                color="red"
+                title="Error"
+                onClose={() => setError(null)} // Hide error notification on close
+                style={{ marginBottom: '20px' }}
+              >
+                {error}
+              </Notification>
+            )}
 
-          {/* Chat messages */}
-          <div style={{ maxHeight: 400, overflowY: 'auto' }}>
-            {messages.map((message, index) => (
-              <Card key={index} shadow="sm" radius="md" withBorder style={{ marginBottom: '12px' }}>
-                <Text fw={500} color={message.role === 'user' ? 'blue' : 'green'}>
-                  {message.role === 'user' ? 'You' : 'Walter'}:
-                </Text>
-                <Text>{message.content}</Text>
-              </Card>
-            ))}
-          </div>
+            {/* Chat messages */}
+            <div style={{ maxHeight: 400, overflowY: 'auto' }}>
+              {messages.map((message, index) => (
+                <Card key={index} shadow="sm" radius="md" withBorder style={{ marginBottom: '12px' }}>
+                  <Text fw={500} color={message.role === 'user' ? 'blue' : 'green'}>
+                    {message.role === 'user' ? 'You' : 'Walter'}:
+                  </Text>
+                  <Text>{message.content}</Text>
+                </Card>
+              ))}
+            </div>
 
-          {/* Input area for the question */}
-          <Textarea
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            placeholder="Enter the text you need us to help you with!"
-            autosize
-            minRows={2}
-            maxRows={6}
-            radius="md"
-          />
-
-          {/* Submit Button */}
-          <Group align="right">
-            <Button
-              onClick={handleSubmit}
-              loading={loading}
-              disabled={loading || !question.trim()}
-              variant="outline"
+            {/* Input area for the question */}
+            <Textarea
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              placeholder="Enter the text you need us to help you with!"
+              autosize
+              minRows={2}
+              maxRows={6}
               radius="md"
-            >
-              Ask
-            </Button>
-          </Group>
-        </Stack>
-      </Card>
+            />
+
+            {/* Submit Button */}
+            <Group align="right">
+              <Button
+                onClick={handleSubmit}
+                loading={loading}
+                disabled={loading || !question.trim()}
+                variant="outline"
+                radius="md"
+              >
+                Ask
+              </Button>
+            </Group>
+          </Stack>
+        </Card>
+      </Container>
 
       {/* Spacing between content and bottom */}
       <Space h="xl" />
-    </Container>
+    </div>
   );
 }

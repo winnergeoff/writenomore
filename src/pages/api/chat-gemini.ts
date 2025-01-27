@@ -7,6 +7,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
+    const chatHistory = req.body.history || [];
     const { question } = req.body;
 
     if (!question) {
@@ -17,11 +18,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Log the request body to ensure it's coming in correctly
       console.log('Received question:', question);
 
-      const result = await model.generateContent(question);
+      const chat = model.startChat({
+        history: chatHistory
+      });
 
-      console.log(result.response.text());
+      const result = await chat.sendMessage(question);
 
-      res.status(200).json( result.response.text() );
+      const response = await result.response.text();
+
+      console.log(response);
+
+      res.send([result.response.text()]);
+
+      // for await (const chunk of result.response.text()) {
+      //   const chunkText = chunk;
+      //   res.write(chunkText);
+      // }
+
+      // res.status(200).json( result.response.text() );
+
     } catch (error) {
       // Log the error for better debugging
       console.error('Error with OpenAI API:', error);

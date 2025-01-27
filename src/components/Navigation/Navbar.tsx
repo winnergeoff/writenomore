@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 import {
   IconBook,
   IconChartPie3,
@@ -6,6 +6,7 @@ import {
   IconCode,
   IconCoin,
   IconFingerprint,
+  IconMoon,
   IconNotification,
 } from '@tabler/icons-react';
 import {
@@ -25,6 +26,8 @@ import {
   ThemeIcon,
   UnstyledButton,
   useMantineTheme,
+  useMantineColorScheme,
+  useComputedColorScheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Navbar.module.css';
@@ -68,6 +71,13 @@ const Navbar = () => {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
 
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme('light');
+
+  const toggleColorScheme = () => {
+    setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark');
+  };
+
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
@@ -87,12 +97,11 @@ const Navbar = () => {
   ));
 
   return (
-    <Box pb={120}>
+    <Box>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <Logo />
-
-          <Group h="100%" gap={0} visibleFrom="sm">
+          <Group h="100%" gap={0} justify="start" visibleFrom="sm">
             <a href="#" className={classes.link}>
               Home
             </a>
@@ -146,6 +155,9 @@ const Navbar = () => {
           </Group>
 
           <Group visibleFrom="sm">
+            <Button onClick={() => toggleColorScheme()}>
+              <IconMoon />
+            </Button>
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
