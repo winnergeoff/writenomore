@@ -6,7 +6,7 @@ import classes from './Footer.module.css';
 
 const links = [
   { url: '/', label: 'Home' },
-  { url: '/LawsByState', label: 'Laws By State' },
+  { url: '/Account', label: 'Account' },
   { url: '/AboutUs', label: 'About Us' },
   { url: '/ContactUs', label: 'Contact Us' },
 ];
