@@ -1,4 +1,6 @@
  'use client'
+import Link from 'next/link';
+import { useState } from 'react';
 import {
   IconBook,
   IconPencil,
@@ -8,7 +10,6 @@ import {
   IconMoon,
 } from '@tabler/icons-react';
 import {
-  Anchor,
   Box,
   Burger,
   Button,
@@ -54,13 +55,46 @@ const featuresPopOut = [
   }
 ];
 
+const navData = [
+  { label: 'Try it', url: '/TryIt' },
+  { label: 'Pricing', url: '/Pricing' },
+  { label: 'FAQ', url: '/FAQ' },
+  { label: 'Contact Us', url: '/ContactUs' },
+];
+
+interface NavbarLinkProps {
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
+  url?: string;
+}
+
+function NavbarLink({ label, url }: NavbarLinkProps) {
+  return (
+    <Link href={`${url}`} className={classes.link}>
+      {label}
+    </Link>
+  );
+}
+
 const Navbar = () => {
+  const [active, setActive] = useState(0);
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
 
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('dark');
+
+  const navButtons = navData.map((link, index) => (
+    <NavbarLink
+      {...link}
+      key={link.label}
+      active={index === active}
+      onClick={() => setActive(index)}
+      url={link.url}
+    />
+  ));
 
   const toggleColorScheme = () => {
     setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark');
@@ -89,9 +123,10 @@ const Navbar = () => {
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <Group h="100%" gap={0} justify="start" visibleFrom="sm">
-            <a href="#" className={classes.link}>
+            <Link href="/" className={classes.link}>
               <Logo />
-            </a>
+            </Link>
+            {navButtons}
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href="#" className={classes.link}>
@@ -130,25 +165,15 @@ const Navbar = () => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              Try It
-            </a>
-            <a href="#" className={classes.link}>
-              Pricing
-            </a>
-            <a href="#" className={classes.link}>
-              FAQ
-            </a>
-            <a href="#" className={classes.link}>
-              Contact Us
-            </a>
           </Group>
 
           <Group visibleFrom="sm">
             <Button onClick={() => toggleColorScheme()}>
               <IconMoon />
             </Button>
-            <Button variant="default">Log in</Button>
+            <Link href="/Login">
+              <Button variant="default">Log in</Button>
+            </Link>
             <Button>Sign up</Button>
           </Group>
 
@@ -168,9 +193,7 @@ const Navbar = () => {
         <ScrollArea h="calc(100vh - 80px" mx="-md">
           <Divider my="sm" />
 
-          <a href="#" className={classes.link}>
-            Home
-          </a>
+          {navButtons}
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
@@ -180,18 +203,6 @@ const Navbar = () => {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
-            Try It
-          </a>
-          <a href="#" className={classes.link}>
-            Pricing
-          </a>
-          <a href="#" className={classes.link}>
-            FAQ
-          </a>
-          <a href="#" className={classes.link}>
-            Contact Us
-          </a>
 
           <Divider my="sm" />
 
