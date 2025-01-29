@@ -1,19 +1,13 @@
 import {
   Space
 } from '@mantine/core';
-import FeatureTitle from '@/components/FeatureTitle/FeatureTitle';
-import LargeHero from '@/components/LargeHero/LargeHero';
-import StatsRing from '@/components/StatsRing/StatsRing';
-import SocialButtons from '@/components/SocialButtons/SocialButtons';
+import HeroCards from '@/components/HeroCards/HeroCards';
 
 export default function Pricing() {
   return (
     <div>
-      <LargeHero />
       <Space h="xl" />
-      <FeatureTitle />
-      <StatsRing />
-      <SocialButtons />
+      <HeroCards />
     </div>
   );
 }

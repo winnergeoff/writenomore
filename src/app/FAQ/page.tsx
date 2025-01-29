@@ -1,8 +1,8 @@
 'use client'
 import SimpleFAQ from '@/components/SimpleFAQ/SimpleFAQ';
-import { Container, Space } from '@mantine/core';
+import { Container } from '@mantine/core';
 
-export default function Pricing() {
+export default function FAQ() {
   return (
     <Container size={700}>
       <SimpleFAQ />
