@@ -15,9 +15,9 @@ const LargeHero = () => {
       <Container size={700} className={classes.inner}>
         <h1 className={classes.title}>
           <Text component="span" variant="gradient" gradient={{ from: 'blue', to: 'cyan' }} inherit>
-            Write No More
+            Write No More's
           </Text>{' '}
-          AI is an all in one solution
+          WalterAI is an all in one solution
         </h1>
 
         <Text className={classes.description} color="dimmed">

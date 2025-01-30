@@ -1,5 +1,6 @@
 import { Button, Group, SimpleGrid, Textarea, TextInput, Title, Space } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
 const Contact = () => {
   const form = useForm({
@@ -20,15 +21,18 @@ const Contact = () => {
     <>
       <Space h="xl" />
       <form onSubmit={form.onSubmit(() => {})}>
-        <Title
-          order={2}
-          size="h1"
-          style={{ fontFamily: 'Greycliff CF, var(--mantine-font-family)' }}
-          fw={900}
-          ta="center"
-        >
-          Get in touch
-        </Title>
+        <Group justify="center">
+          <Title
+            order={2}
+            size="h1"
+            style={{ fontFamily: 'Greycliff CF, var(--mantine-font-family)' }}
+            fw={900}
+            ta="center"
+          >
+            Get in touch
+          </Title>
+          <WalterLogo2 />
+        </Group>
 
         <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
           <TextInput

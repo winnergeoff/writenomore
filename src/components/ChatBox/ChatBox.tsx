@@ -68,14 +68,14 @@ const ChatBox = () => {
     }
   };
   return (
-    <Container size="sm">
+    <>
       <Space h="xl" />
       <Card shadow="md" padding="lg" radius="md" withBorder>
         <Stack gap="lg">
           {/* Title */}
           <Group justify="center">
             <Title order={1} ta="center">
-              Chat with Walter
+              Chat with WalterAI
             </Title>
 
             <WalterLogo />
@@ -130,7 +130,7 @@ const ChatBox = () => {
           </Group>
         </Stack>
       </Card>
-    </Container>
+    </>
   )
 }
 
