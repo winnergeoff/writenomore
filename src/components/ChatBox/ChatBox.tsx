@@ -13,6 +13,7 @@ import {
   Title,
   Space,
 } from '@mantine/core';
+import WalterLogo from '../WalterLogo/WalterLogo';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -72,9 +73,13 @@ const ChatBox = () => {
       <Card shadow="md" padding="lg" radius="md" withBorder>
         <Stack gap="lg">
           {/* Title */}
-          <Title order={1} ta="center">
-            Chat with Walter
-          </Title>
+          <Group justify="center">
+            <Title order={1} ta="center">
+              Chat with Walter
+            </Title>
+
+            <WalterLogo />
+          </Group>
 
           {/* Notification for errors */}
           {error && (

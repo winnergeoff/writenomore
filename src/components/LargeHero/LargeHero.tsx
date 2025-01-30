@@ -37,7 +37,7 @@ const LargeHero = () => {
 
           <Button
             component="a"
-            href="/pricing"
+            href="/Pricing"
             size="xl"
             variant="default"
             className={classes.control}

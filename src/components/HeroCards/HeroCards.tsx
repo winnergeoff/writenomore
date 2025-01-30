@@ -10,7 +10,8 @@ import {
   Text,
   Title,
   useMantineTheme,
-  List
+  List,
+  Button
 } from '@mantine/core';
 import classes from './HeroCards.module.css';
 
@@ -54,8 +55,8 @@ const pricingData = [
 const HeroCards = () => {
   const theme = useMantineTheme();
   const features = pricingData.map((feature) => (
-    <Link href='/Payment' className={classes.cardLink}>
-      <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
+    <Link key={feature.title} href='/Payment' className={classes.cardLink}>
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
         <feature.icon size={50} stroke={2} color={theme.colors.blue[6]} />
         <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
           {feature.title}
@@ -68,6 +69,13 @@ const HeroCards = () => {
             <List.Item key={item}>{item}</List.Item>
           ))}
         </List>
+        <Button
+          type="submit"
+          size="md"
+          className={classes.cardButton}
+        >
+          Sign up
+        </Button>
       </Card>
     </Link>
   ));

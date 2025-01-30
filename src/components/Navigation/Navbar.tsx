@@ -31,6 +31,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Navbar.module.css';
 import Logo from '../Logo/Logo';
+import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
 const featuresPopOut = [
   {
@@ -124,7 +125,7 @@ const Navbar = () => {
         <Group justify="space-between" h="100%">
           <Group h="100%" gap={0} justify="start" visibleFrom="sm">
             <Link href="/" className={classes.link}>
-              <Logo />
+              <WalterLogo2 />
             </Link>
             {navButtons}
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
@@ -160,7 +161,9 @@ const Navbar = () => {
                         Sign up for an account today
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Link href='/Pricing' className={classes.unstyledLink}>
+                      <Button variant="default">Get started</Button>
+                    </Link>
                   </Group>
                 </div>
               </HoverCard.Dropdown>

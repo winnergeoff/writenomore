@@ -3,6 +3,7 @@ import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/
 import { ActionIcon, Anchor, Group } from '@mantine/core';
 import Logo from '../Logo/Logo';
 import classes from './Footer.module.css';
+import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
 const links = [
   { url: '/', label: 'Home' },
@@ -28,7 +29,7 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <Logo />
+        <WalterLogo2 />
 
         <Group className={classes.links}>{items}</Group>
 
