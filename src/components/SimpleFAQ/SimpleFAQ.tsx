@@ -2,10 +2,46 @@ import { Accordion, Container, Title, Group } from '@mantine/core';
 import classes from './SimpleFAQ.module.css';
 import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
-const placeholder =
-  'It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor. In a sterile environment, the germs within its body can’t multiply, and it dies.It has no eyeballs, so it can’t see. It checks its surroundings via the ultrasonic waves it emits from its mouth.';
+const accordionData = [
+  {
+    control: 'What is WalterAI?',
+    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
+    id: 'what-is-walter-ai'
+  },
+  {
+    control: 'What is WalterAI?',
+    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
+    id: 'what-is-walter-ai1'
+  },
+  {
+    control: 'What is WalterAI?',
+    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
+    id: 'what-is-walter-ai2'
+  },
+  {
+    control: 'What is WalterAI?',
+    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
+    id: 'what-is-walter-ai3'
+  },
+  {
+    control: 'What is WalterAI?',
+    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
+    id: 'what-is-walter-ai4'
+  },
+  {
+    control: 'What is WalterAI?',
+    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
+    id: 'what-is-walter-ai5'
+  },
+];
 
 const SimpleFAQ = () => {
+  const accordionItems = accordionData.map((item) => (
+    <Accordion.Item  key={item.id} className={classes.item} value={item.id}>
+      <Accordion.Control>{item.control}</Accordion.Control>
+      <Accordion.Panel>{item.panel}</Accordion.Panel>
+    </Accordion.Item>
+  ));
   return (
     <Container size="sm" className={classes.wrapper}>
       <Group justify="center" className={classes.title}>
@@ -16,30 +52,7 @@ const SimpleFAQ = () => {
       </Group>
 
       <Accordion variant="separated">
-        <Accordion.Item className={classes.item} value="reset-password">
-          <Accordion.Control>How can I reset my password?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="another-account">
-          <Accordion.Control>Can I create more that one account?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="newsletter">
-          <Accordion.Control>How can I subscribe to monthly newsletter?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="credit-card">
-          <Accordion.Control>Do you store credit card information securely?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="payment">
-          <Accordion.Control>What payment systems to you work with?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
+        {accordionItems}
       </Accordion>
     </Container>
   );

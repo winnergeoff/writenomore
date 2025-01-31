@@ -28,3 +28,7 @@
     );
   }
 }
+
+.cardLink {
+  text-decoration: none;
+}

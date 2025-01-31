@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import {
   Button,
-  Container,
   Textarea,
   Text,
   Group,
@@ -72,7 +71,6 @@ const ChatBox = () => {
       <Space h="xl" />
       <Card shadow="md" padding="lg" radius="md" withBorder>
         <Stack gap="lg">
-          {/* Title */}
           <Group justify="center">
             <Title order={1} ta="center">
               Chat with WalterAI
@@ -81,7 +79,6 @@ const ChatBox = () => {
             <WalterLogo />
           </Group>
 
-          {/* Notification for errors */}
           {error && (
             <Notification
               color="red"
@@ -93,7 +90,6 @@ const ChatBox = () => {
             </Notification>
           )}
 
-          {/* Chat messages */}
           <div style={{ maxHeight: 400, overflowY: 'auto' }}>
             {messages.map((message, index) => (
               <Card key={index} shadow="sm" radius="md" withBorder style={{ marginBottom: '12px' }}>
@@ -105,18 +101,15 @@ const ChatBox = () => {
             ))}
           </div>
 
-          {/* Input area for the question */}
           <Textarea
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Enter the text you need us to help you with!"
             autosize
-            minRows={2}
-            maxRows={6}
+            minRows={20}
             radius="md"
           />
 
-          {/* Submit Button */}
           <Group align="right">
             <Button
               onClick={handleSubmit}

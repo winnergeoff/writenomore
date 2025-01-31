@@ -1,28 +1,29 @@
-import { IconColorSwatch } from '@tabler/icons-react';
+import Link from 'next/link';
+import { IconUserQuestion } from '@tabler/icons-react';
 import { Paper, Text, ThemeIcon } from '@mantine/core';
 import classes from './Card.module.css';
 
 const Card = () => {
   return (
-    <Paper withBorder radius="md" className={classes.card}>
-      <ThemeIcon
-        size="xl"
-        radius="md"
-        variant="gradient"
-        gradient={{ deg: 0, from: 'pink', to: 'orange' }}
-      >
-        <IconColorSwatch size={28} stroke={1.5} />
-      </ThemeIcon>
-      <Text size="xl" fw={500} mt="md">
-        Theming documentation
-      </Text>
-      <Text size="sm" mt="sm" c="dimmed">
-        Extend default theme with any amount of additional colors, replace shadows, radius, spacing,
-        fonts and many other properties to match your design requirements. Mantine theme is just an
-        object, you can subscribe to it in any part of application via context and use it to build
-        your own components.
-      </Text>
-    </Paper>
+    <Link href="/FAQ" className={classes.cardLink}>
+      <Paper withBorder radius="md" className={classes.card}>
+        <ThemeIcon
+          size="xl"
+          radius="md"
+          variant="gradient"
+          gradient={{ deg: 0, from: 'pink', to: 'orange' }}
+        >
+          <IconUserQuestion size={28} stroke={1.5} />
+        </ThemeIcon>
+        <Text size="xl" fw={500} mt="md">
+          Did you know?
+        </Text>
+        <Text size="sm" mt="sm" c="dimmed">
+          Many answers to common questions can also be found in our FAQ! Take a peek there to see if we 
+          may already have the answers to your questions there!
+        </Text>
+      </Paper>
+    </Link>
   );
 }
 

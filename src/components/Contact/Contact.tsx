@@ -1,5 +1,6 @@
 import { Button, Group, SimpleGrid, Textarea, TextInput, Title, Space } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import Card from '@/components/Card/Card';
 import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
 const Contact = () => {
@@ -77,6 +78,8 @@ const Contact = () => {
           </Button>
         </Group>
       </form>
+      <Space h="xl" />
+      <Card />
     </>
   );
 }
