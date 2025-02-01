@@ -30,7 +30,6 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Navbar.module.css';
-import Logo from '../Logo/Logo';
 import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
 const featuresPopOut = [

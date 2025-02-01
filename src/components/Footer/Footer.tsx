@@ -1,7 +1,6 @@
 'use client'
 import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
 import { ActionIcon, Anchor, Group } from '@mantine/core';
-import Logo from '../Logo/Logo';
 import classes from './Footer.module.css';
 import WalterLogo2 from '../WalterLogo/WalterLogo2';
 

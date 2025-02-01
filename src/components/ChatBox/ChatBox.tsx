@@ -55,6 +55,7 @@ const ChatBox = () => {
         ...newMessages,
         { role: 'assistant', content: data }
       ]);
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
     } catch (error: any) {
       console.error('Error:', error);
       setError(error.message || 'Failed to fetch answer from ChatGPT');

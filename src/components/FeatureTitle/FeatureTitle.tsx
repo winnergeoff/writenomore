@@ -35,6 +35,7 @@ export const MOCKDATA = [
   },
 ];
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 interface FeatureProps {
   icon: React.FC<any>;
   title: React.ReactNode;

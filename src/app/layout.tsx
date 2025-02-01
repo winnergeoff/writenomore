@@ -11,7 +11,9 @@ export const metadata = {
   description: 'Easy to use AI tools for those of us who can\'t write a single line more',
 };
 
-export default function RootLayout({ children }: { children: any }) {
+export default function RootLayout({ children }: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
