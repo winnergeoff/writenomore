@@ -36,8 +36,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // }
 
       // res.status(200).json( result.response.text() );
-
-    } catch (error) {
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    } catch (error: any) {
       // Log the error for better debugging
       console.error('Error with OpenAI API:', error);
 

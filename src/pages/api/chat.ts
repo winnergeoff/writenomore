@@ -30,7 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const answer = completion.choices[0].message.content;
 
       res.status(200).json({ answer });
-    } catch (error) {
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+      } catch (error: any) {
       // Log the error for better debugging
       console.error('Error with OpenAI API:', error);
 
