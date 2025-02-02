@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
 declare global {
+  /* eslint no-var: 0 */
   var prisma: PrismaClient; // This must be a `var` and not a `let / const`
 }
 
