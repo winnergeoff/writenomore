@@ -2,13 +2,14 @@ import '@mantine/core/styles.css';
 
 import React from 'react';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import Providers from '@/components/Providers/Providers';
 import Navbar from '../components/Navigation/Navbar';
 import Footer from '@/components/Footer/Footer';
 import { theme } from '../../theme';
 
 export const metadata = {
   title: 'Write No More AI',
-  description: 'Easy to use AI tools for those of us who can\'t write a single line more',
+  description: 'Easy to use AI tools for those of us who can&apos;t write a single line more',
 };
 
 export default function RootLayout({ children }: Readonly<{
@@ -25,11 +26,13 @@ export default function RootLayout({ children }: Readonly<{
         />
       </head>
       <body style={{ height: '100%' }}>
-        <MantineProvider theme={theme}>
-          <Navbar />
-          {children}
-          <Footer />
-        </MantineProvider>
+        <Providers>
+          <MantineProvider theme={theme}>
+            <Navbar />
+            {children}
+            <Footer />
+          </MantineProvider>
+        </Providers>
       </body>
     </html>
   );

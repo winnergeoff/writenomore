@@ -1,6 +1,7 @@
  'use client'
 import Link from 'next/link';
 import { useState } from 'react';
+import { signOut, useSession } from 'next-auth/react';
 import {
   IconBook,
   IconPencil,
@@ -78,6 +79,7 @@ function NavbarLink({ label, url }: NavbarLinkProps) {
 }
 
 const Navbar = () => {
+  const { data: session } = useSession();
   const [active, setActive] = useState(0);
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
@@ -169,15 +171,35 @@ const Navbar = () => {
             </HoverCard>
           </Group>
 
-          <Group visibleFrom="sm">
-            <Button onClick={() => toggleColorScheme()}>
-              <IconMoon />
-            </Button>
-            <Link href="/Login">
-              <Button variant="default">Log in</Button>
-            </Link>
-            <Button>Sign up</Button>
-          </Group>
+          {!session && (
+            <Group visibleFrom="sm">
+              <Button onClick={() => toggleColorScheme()}>
+                <IconMoon />
+              </Button>
+              <Link href="/api/auth/signin">
+                <Button variant="default">Log in</Button>
+              </Link>
+              <Link href="/Pricing">
+                <Button>Sign up</Button>
+              </Link>
+            </Group>
+          )}
+
+          {session && (
+            <Group visibleFrom="sm">
+              <Button onClick={() => toggleColorScheme()}>
+                <IconMoon />
+              </Button>
+              Hello, {session?.user?.name || ''}
+              <Link href="/Account">
+                <Button variant="default">My Account</Button>
+              </Link>
+              <Button variant="default" onClick={() => signOut()}>
+                Sign Out
+              </Button>
+            </Group>
+          )}
+
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
@@ -208,10 +230,34 @@ const Navbar = () => {
 
           <Divider my="sm" />
 
-          <Group justify="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
+          {!session && (
+            <Group justify="center" grow pb="xl" px="md">
+              <Button onClick={() => toggleColorScheme()}>
+                <IconMoon />
+              </Button>
+              <Link href="/api/auth/signin">
+                <Button variant="default">Log in</Button>
+              </Link>
+              <Link href="/Pricing">
+                <Button>Sign up</Button>
+              </Link>
+            </Group>
+          )}
+
+          {session && (
+            <Group justify="center" grow pb="xl" px="md">
+              <Button onClick={() => toggleColorScheme()}>
+                <IconMoon />
+              </Button>
+              Hello, {session?.user?.name || ''}
+              <Link href="/Account">
+                <Button variant="default">My Account</Button>
+              </Link>
+              <Button variant="default" onClick={() => signOut()}>
+                Sign Out
+              </Button>
+            </Group>
+          )}
         </ScrollArea>
       </Drawer>
     </Box>
