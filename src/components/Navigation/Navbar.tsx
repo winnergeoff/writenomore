@@ -1,5 +1,6 @@
  'use client'
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import {
@@ -32,6 +33,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Navbar.module.css';
 import WalterLogo2 from '../WalterLogo/WalterLogo2';
+import { handleGoogleSignIn } from '@/lib/auth/googleSignInServerAction';
 
 const featuresPopOut = [
   {
@@ -57,10 +59,10 @@ const featuresPopOut = [
 ];
 
 const navData = [
-  { label: 'Try it', url: '/TryIt' },
-  { label: 'Pricing', url: '/Pricing' },
+  { label: 'Try it', url: '/tryit' },
+  { label: 'Pricing', url: '/pricing' },
   { label: 'FAQ', url: '/FAQ' },
-  { label: 'Contact Us', url: '/ContactUs' },
+  { label: 'Contact Us', url: '/contactus' },
 ];
 
 interface NavbarLinkProps {
@@ -84,6 +86,7 @@ const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
+  const router = useRouter();
 
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('dark');
@@ -162,7 +165,7 @@ const Navbar = () => {
                         Sign up for an account today
                       </Text>
                     </div>
-                    <Link href='/Pricing' className={classes.unstyledLink}>
+                    <Link href='/pricing' className={classes.unstyledLink}>
                       <Button variant="default">Get started</Button>
                     </Link>
                   </Group>
@@ -176,10 +179,13 @@ const Navbar = () => {
               <Button onClick={() => toggleColorScheme()}>
                 <IconMoon />
               </Button>
-              <Link href="/api/auth/signin">
-                <Button variant="default">Log in</Button>
-              </Link>
-              <Link href="/Pricing">
+              <Button
+                variant="default"
+                onClick={() => router.push("/auth/sign-in")}
+              >
+                Log in
+              </Button>
+              <Link href="/pricing">
                 <Button>Sign up</Button>
               </Link>
             </Group>
@@ -235,9 +241,12 @@ const Navbar = () => {
               <Button onClick={() => toggleColorScheme()}>
                 <IconMoon />
               </Button>
-              <Link href="/api/auth/signin">
-                <Button variant="default">Log in</Button>
-              </Link>
+              <Button
+                variant="default"
+                onClick={() => router.push("/auth/sign-in")}
+              >
+                Log in
+              </Button>
               <Link href="/Pricing">
                 <Button>Sign up</Button>
               </Link>

@@ -19,7 +19,7 @@
     "@prisma/client": "^6.3.0",
     "@tabler/icons-react": "^3.29.0",
     "next": "15.1.6",
-    "next-auth": "^4.24.11",
+    "next-auth": "^5.0.0-beta.17",
     "openai": "^4.80.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
