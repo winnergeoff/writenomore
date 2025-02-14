@@ -55,7 +55,7 @@ const pricingData = [
 const HeroCards = () => {
   const theme = useMantineTheme();
   const features = pricingData.map((feature) => (
-    <Link key={feature.title} href='/Payment' className={classes.cardLink}>
+    <Link key={feature.title} href='/payments' className={classes.cardLink}>
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
         <feature.icon size={50} stroke={2} color={theme.colors.blue[6]} />
         <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">

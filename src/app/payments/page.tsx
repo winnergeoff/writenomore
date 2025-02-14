@@ -1,15 +1,12 @@
 import { PaymentsPage } from "./payments";
 import { checkIsAuthenticated } from "@/lib/auth/checkIsAuthenticated";
-import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
+
 const Payments: React.FC = async () => {
   const isAuthenticated = await checkIsAuthenticated();
-  const router = useRouter();
 
   if (!isAuthenticated) {
-    router.push({
-      pathname: "/auth/sign-in",
-      query: { from: router.pathname }
-    });
+    redirect("/auth/sign-in");
   } else {
     return <PaymentsPage />;
   }
