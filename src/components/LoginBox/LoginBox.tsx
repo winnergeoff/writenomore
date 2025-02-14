@@ -1,3 +1,4 @@
+'use client'
 import {
   Anchor,
   Button,
@@ -8,13 +9,13 @@ import {
   PaperProps,
   PasswordInput,
   Stack,
-  Text,
+  Title,
   TextInput,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { upperFirst, useToggle } from '@mantine/hooks';
-import { GoogleButton } from './GoogleButton';
-import { TwitterButton } from './TwitterButton';
+import SocialButtons from "@/components/SocialButtons/SocialButtons";
+import classes from './LoginBox.module.css'
 
 const LoginBox = (props: PaperProps) => {
   const [type, toggle] = useToggle(['login', 'register']);
@@ -34,14 +35,10 @@ const LoginBox = (props: PaperProps) => {
 
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
-      <Text size="lg" fw={500}>
-        Welcome to Mantine, {type} with
-      </Text>
-
-      <Group grow mb="md" mt="md">
-        <GoogleButton radius="xl">Google</GoogleButton>
-        <TwitterButton radius="xl">Twitter</TwitterButton>
-      </Group>
+      <Title className={classes.title}>Create an account</Title>
+      <div className="social-logins">
+        <SocialButtons />
+      </div>
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 

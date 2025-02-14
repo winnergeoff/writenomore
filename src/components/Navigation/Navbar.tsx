@@ -33,7 +33,6 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Navbar.module.css';
 import WalterLogo2 from '../WalterLogo/WalterLogo2';
-import { handleGoogleSignIn } from '@/lib/auth/googleSignInServerAction';
 
 const featuresPopOut = [
   {
@@ -247,7 +246,7 @@ const Navbar = () => {
               >
                 Log in
               </Button>
-              <Link href="/Pricing">
+              <Link href="/pricing">
                 <Button>Sign up</Button>
               </Link>
             </Group>
@@ -259,7 +258,7 @@ const Navbar = () => {
                 <IconMoon />
               </Button>
               Hello, {session?.user?.name || ''}
-              <Link href="/Account">
+              <Link href="/dashboard">
                 <Button variant="default">My Account</Button>
               </Link>
               <Button variant="default" onClick={() => signOut()}>

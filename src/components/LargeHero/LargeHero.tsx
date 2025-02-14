@@ -1,15 +1,8 @@
 'use client';
-
-import { useState } from 'react';
 import { Button, Container, Group, Text } from '@mantine/core';
 import classes from './LargeHero.module.css';
-import ChatBox from '../ChatBox/ChatBox';
 
 const LargeHero = () => {
-  const [showChatBox, setShowChatBox] = useState(false);
-  const toggleChatBox = () => {
-    setShowChatBox(!showChatBox);
-  };
   return (
     <div className={classes.wrapper}>
       <Container size={700} className={classes.inner}>
@@ -30,14 +23,15 @@ const LargeHero = () => {
             className={classes.control}
             variant="gradient"
             gradient={{ from: 'blue', to: 'cyan' }}
-            onClick={toggleChatBox}
+            component="a"
+            href="/auth/sign-in"
           >
             Get started
           </Button>
 
           <Button
             component="a"
-            href="/Pricing"
+            href="/pricing"
             size="xl"
             variant="default"
             className={classes.control}
@@ -45,9 +39,6 @@ const LargeHero = () => {
             Pricing
           </Button>
         </Group>
-        {showChatBox && (
-          <ChatBox />
-        )}
       </Container>
     </div>
   );

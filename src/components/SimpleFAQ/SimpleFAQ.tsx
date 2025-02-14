@@ -4,34 +4,14 @@ import WalterLogo2 from '../WalterLogo/WalterLogo2';
 
 const accordionData = [
   {
-    control: 'What is WalterAI?',
-    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
-    id: 'what-is-walter-ai'
+    control: 'What is WriteNoMore?',
+    panel: 'WriteNoMore is a specialized version of ChatGPT designed to streamline content creation across various formats. It adapts to specific user needs, including tone, target audience, style, and word count, ensuring tailored and engaging output. By first developing a structured outline, WriteNoMore organizes key points, estimates word counts for each section, and then seamlessly crafts the content with a logical flow. Whether you&apos;re writing blog posts, articles, or reports, this method ensures clarity, coherence, and efficiency—making it an ideal tool for generating well-structured, high-quality written content.',
+    id: 'what-is-write-no-more'
   },
   {
-    control: 'What is WalterAI?',
-    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
-    id: 'what-is-walter-ai1'
-  },
-  {
-    control: 'What is WalterAI?',
-    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
-    id: 'what-is-walter-ai2'
-  },
-  {
-    control: 'What is WalterAI?',
-    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
-    id: 'what-is-walter-ai3'
-  },
-  {
-    control: 'What is WalterAI?',
-    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
-    id: 'what-is-walter-ai4'
-  },
-  {
-    control: 'What is WalterAI?',
-    panel: 'WalterAI is an AI assisant that you can use to enhance anything from work emails to fiction novels. It can also analyze spreadsheets and notes you may have from class or work via its drag and drop functionality. The possibilities are endless.',
-    id: 'what-is-walter-ai5'
+    control: 'Who should use WriteNoMore?',
+    panel: 'WriteNoMore is designed for anyone who needs help writing fast, high-quality content.',
+    id: 'who-should-use-write-no-more'
   },
 ];
 
